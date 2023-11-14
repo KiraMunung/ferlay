@@ -1,0 +1,26 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tfc/css/bootstrap.min.css' %}">
+    <title>Title</title>
+</head>
+<body>
+    <h3>Dossier : {{ dossier.nom }}</h3>
+
+    {% if fichiers %}
+        <h4>Fichiers :</h4>
+        <ul>
+            {% for fichier in fichiers %}
+                <li>
+                    {{ fichier.fichier }}
+                </li>
+                <li>
+                    <a href="{{ fichier.fichier.url }}" download style="text-decoration:none">télécharger</a>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+<script src="{% static 'tfc/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,91 @@
+{% load static %}
+
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'tfc/css/style.css' %}">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <title>Login</title>
+
+    <style>
+         body{
+            background: url({% static 'tfc/images/img3.jpg' %});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+         }
+
+         .input-field{
+            font-size: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+            height: 50px;
+            width: 100%;
+            padding: 0 10px 0 45px;
+            border: none;
+            border-radius: 30px;
+            outline: none;
+            transition: .2s ease;
+          }
+    </style>
+</head>
+<body>
+<div class="wrapper">
+        <nav class="nav">
+            <div class="nav-logo">
+                <p><img src="{% static 'tfc/images/esis2.png' %}" alt="" class="logo"></p>
+            </div>
+            <div class="nav-menu">
+                <ul>
+                    <li><a href="#" class="link active">Accueil</a></li>
+                    <li><a href="#" class="link">Blog</a></li>
+
+                    <li><a href="#" class="link">About</a></li>
+                </ul>
+            </div>
+            <div class="nav-button">
+                <button class="btn" id="loginBtn" style="color: white;">Se Connecter</button>
+
+            </div>
+            <div class="nav-menu-btn">
+                <i class="bx bx-menu"></i>
+            </div>
+        </nav>
+<!-------------------------------------------- forme du box -------------------------------------------->
+        <div class="form-box">
+            <!------------ login -------------->
+            <div class="login-container" id="login">
+                <div class="top">
+                    <header>Login</header>
+                </div>
+                <form action="" method="POST" novalidate>
+                    {% csrf_token %}
+                    <div class="input-box">
+                        <input type="text" class="input-field" placeholder="Nom d'utilisateur" id="username" name="username">
+                        <i class="bx bx-user"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="password" class="input-field" placeholder="Mot de passe" id="password" name="password">
+                        <i class="bx bx-lock-alt"></i>
+                    </div>
+                    <div class="input-box">
+                        <input type="submit" class="submit" value="Se connecter">
+
+                    </div>
+                </form>
+                <div class="two-col">
+                    <div class="one">
+                        <input type="checkbox" id="register-check">
+                        <label for="login-check"> souviens-toi de Moi</label>
+                    </div>
+                    <div class="two">
+                        <label><a href="#">| Mot de passe oublié?</a></label>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</body>
+</html>

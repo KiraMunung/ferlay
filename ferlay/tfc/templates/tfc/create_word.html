@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<head>
+    <title>Créer un fichier Word</title>
+</head>
+<body>
+    <h1>Créer un fichier Word</h1>
+    <form method="POST" action="{% url 'create_word' %}">
+        {% csrf_token %}
+        <label for="content">Contenu :</label><br>
+        <textarea id="content" name="content" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Créer">
+    </form>
+</body>
+</html>

@@ -1,0 +1,123 @@
+{% load static %}
+<html>
+<head>
+  <title>Ma page avec Bootstrap</title>
+  <!--<link rel="stylesheet" href="style.css">-->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <style>
+    .container {
+      margin-top: 50px;
+    }
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .button-group {
+      display: flex;
+      justify-content: space-between;
+    }
+    .button-group .btn {
+      width: calc(50% - 10px);
+    }
+    body{
+    background: url(img3.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+  #btn{
+    border-radius: 30px;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!--<nav class="nav">
+
+      <div class="nav-menu">
+          <ul>
+              <li><a href="#" class="link active">Accueil</a></li>
+              <li><a href="#" class="link">Blog</a></li>
+
+              <li><a href="#" class="link">About</a></li>
+          </ul>
+      </div>
+      <div class="nav-button">
+          <button class="btn" id="loginBtn" style="color: white;">Se Connecter</button>
+
+      </div>
+      <div class="nav-menu-btn">
+          <i class="bx bx-menu"></i>
+      </div>
+  </nav>-->
+    <br><br><br><br><br>
+    <div class="logo">
+      <img src="{% static 'tfc/images/esis2.png' %}" width="250" height="250" alt="Logo" style="border-radius: 30px;">
+    </div>
+
+
+      <br><br><br><br>
+    <div class="button-group">
+      {% if user.is_superuser %}
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-file-alt"></i> Créer un dossier
+      </button>
+
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-file"></i> Créer un document
+      </button>
+      {% endif %}
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div class="button-group">
+      {% if user.is_superuser %}
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-share"></i> Partager un document
+      </button>
+      {% endif %}
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-upload" style="font-family:'Times New Roman', Times, serif;"></i> Charger un document
+      </button>
+    </div>
+      <br>
+      <br>
+      <br>
+      <br>
+    <div class="button-group">
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-download"></i> Télécharger un document
+      </button>
+      {% if user.is_superuser %}
+      <button class="btn btn-primary" id="btn">
+        <i class="fas fa-print"></i> Imprimer un document
+      </button>
+      {% endif %}
+    </div>
+  </div>
+  <br><br>
+  <button class="btn btn-primary" id="btn" style="margin-left:46%">
+        <i class="fas fa-print"></i> Approuver un document
+  </button>
+
+  <br><br><br><br>
+
+  <button class="btn btn-primary" id="btn" style="margin-left:46%">
+    <i class="fas fa-print"></i>  <a href="{% url 'recherche_dossier' %}" style="color:white; text-decoration:none">faire une recherche</a>
+  </button>
+
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+
+
+
+  <script src="https://kit.fontawesome.com/your-font-awesome-kit.js" crossorigin="anonymous"></script>
+</body>
+</html>

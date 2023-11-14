@@ -1,0 +1,26 @@
+{% load static %}
+
+{% load crispy_forms_tags %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>etudiant</title>
+</head>
+<body>
+
+        <div class="container" style="border-style: solid; border-width: 2px; border-color: 5F9EA0; border-radius:20px">
+            <div class="row">
+                        <div class="card" style="color:black; border-radius:20px">
+                            <div class="card-text">
+                                <form enctype="multipart/form-data" method="post" style="font-family: Times New Roman, Times, serif;">
+                                    {% csrf_token %}
+                                    {{ form|crispy }}
+                                    <button type="submit" class="save btn btn-primary" style="background-color:5F9EA0">Enregistrer</button>
+                                </form>
+                            </div>
+                        </div>
+            </div>
+        </div>
+
+</body>
+</html>

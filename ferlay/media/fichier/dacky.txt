@@ -1,0 +1,67 @@
+voila la page de commandes: {% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{% static 'Acp/css/bootstrap.min.css' %}" rel="stylesheet">
+    <title>Mes commandes</title>
+</head>
+<body>
+
+    <br>
+
+
+
+    <div class="container" style="padding-top: 5%;">
+          <div class="row">
+            {% for commande in commandes %}
+                  <div class="col-md-4 mt-5">
+                      <div class="card card-custom bg-dark shadow">
+                          <div class="card-custom-img" style="background-color: rgb(172, 187, 237);">
+                              <div class="card-custom-avatar p-3">
+                                  {% if commande.croquis %}
+                                    <img src="{{ commande.croquis.url }}" class="card-img-top img-thumbnail rounded img-fluid shadow" alt="Croquis" style="max-height: 250px;">
+                                  {% endif %}
+                              </div>
+                              <div class="card-body" data-spy="scroll" style="overflow-y: auto;">
+                                  <h3 class="card-title text-orange"> {{ commande.nom }} </h3>
+                                  <div class="card-text text-white">
+                                      <p id="description" style="color:red">
+                                          {{ commande.description }}
+
+                                      </p>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card-footer ">
+
+                          </div>
+
+                      </div>
+                  </div>
+              {% empty %}
+                <p>Aucune commande trouvée.</p>
+              {% endfor %}
+          </div>
+    </div>
+    <br>
+
+
+    <script src="{% static 'Acp/js/bootstrap.bundle.min.js' %}"></script>
+
+</body>
+</html> 
+voila mon model: 
+class Commande(models.Model):
+    nom = models.CharField(max_length=50)
+    croquis = models.ImageField(upload_to='croquis', blank=True)
+    description = models.TextField(max_length=700)
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE)
+    realisable = models.BooleanField(default=False)
+    notifie = models.BooleanField(default=False)
+    date_commande = models.DateTimeField(auto_now=True)
+
+
+
+    def __str__(self):
+        return self.nom 
+je vais que quand le realisble est a True et notifie a True qu'on affiche votre commande a ete vue et elle est realisable si notifie est a True et realisable a False qu'on affiche votre commande a ete vue mais elle est irealisable si les deux sont a False qu'on affiche  en attente d'une reponse si realisable est a  True et notifie a False qu'on affiche aucune notification. fais moi ça

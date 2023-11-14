@@ -1,0 +1,54 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tfc/css/bootstrap.min.css' %}">
+    <title>espace</title>
+
+    <style>
+        body{
+            background: url({% static 'tfc/images/esis2.png' %});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+            background: linear-gradient(rgba(4, 100, 150, 0.8), transparent);
+         }
+         .img{
+
+                padding-left:27%;
+                padding-top:100px;
+                
+
+
+         }
+         .lien{
+
+            padding-left:42%;
+         }
+        body{
+
+            background: url({% static 'tfc/images/img3.jpg' %});
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="img">
+        <img src="{% static 'tfc/images/esis.jpg' %}" class="img">
+    </div>
+    <br><br><br><br><br><br>
+
+
+    <div class="lien">
+        <a class="btn btn-primary" href=" {% url 'login' %}" role="button" style="height:60px; width:400px; border-radius:30px; font-size:30px; font-family:'Times New Roman', Times, serif;">s'identifier</a>
+    </div>
+
+
+
+    <script src="{% static 'tfc/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,16 @@
+<!-- scan_and_modify_pdf.html -->
+{% load static %}
+<html>
+<head>
+    <title>Scanner et modifier un PDF</title>
+</head>
+<body>
+    <h2>Scanner et modifier un PDF</h2>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="pdf">Sélectionnez un fichier PDF :</label>
+        <input type="file" name="pdf" id="pdf" accept="application/pdf" required>
+        <button type="submit">Scanner et modifier</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<head>
+    <title>Partager un fichier</title>
+</head>
+<body>
+    <h1>Partager un fichier</h1>
+    <form method="post" enctype="multipart/form-data" action="{% url 'share_file' %}">
+    {% csrf_token %}
+    <input type="file" name="file" accept=".pdf">
+    <br><br>
+    <input type="submit" value="Partager">
+</form>
+</body>
+</html>

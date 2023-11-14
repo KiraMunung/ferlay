@@ -1,0 +1,47 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'tfc/css/bootstrap.min.css' %}">
+    <title>Recherche dossier</title>
+</head>
+<body>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <nav class="navbar navbar-light bg-light" style="background:#def">
+      <div class="container-fluid">
+        <a class="navbar-brand">Navbar</a>
+        <form class="d-flex" method="POST" action="{% url 'recherche_dossier' %}" style="padding-right:60%">
+            {% csrf_token %}
+          <input class="form-control me-2" type="text" name="matricule" placeholder="Entrez le matricule de l'étudiant">
+          <button class="btn btn-outline-success" type="submit">Rechercher</button>
+        </form>
+      </div>
+    </nav>
+    <br>
+    <br>
+    <!--<form method="POST" action="{% url 'recherche_dossier' %}">
+    {% csrf_token %}
+    <input type="text" name="matricule" placeholder="Entrez le matricule de l'étudiant">
+    <input type="submit" value="Rechercher">
+    </form>-->
+
+    {% if dossiers %}
+        <h3>Dossiers correspondants :</h3>
+        <ul>
+            {% for dossier in dossiers %}
+                <li><a href="{% url 'afficher_fichiers_dossier' dossier.id %}">{{ dossier.nom }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+<script src="{% static 'tfc/js/bootstrap.bundle.min.js' %}"></script>
+</body>
+</html>

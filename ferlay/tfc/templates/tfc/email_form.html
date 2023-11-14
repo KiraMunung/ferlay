@@ -1,0 +1,15 @@
+{% load static %}
+<html>
+<head>
+    <title>Partager par e-mail</title>
+</head>
+<body>
+    <h1>Partager par e-mail</h1>
+    <form method="post">
+        {% csrf_token %}
+        <input type="email" name="receiver_email" required placeholder="Adresse e-mail du destinataire">
+        <br><br>
+        <input type="submit" value="Envoyer">
+    </form>
+</body>
+</html>
